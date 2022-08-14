@@ -1,4 +1,5 @@
-﻿using CRUD_MVVM.ViewModels;
+﻿using Acr.UserDialogs;
+using CRUD_MVVM.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace CRUD_MVVM.Views
         {
             base.OnAppearing();
             listarAlumnosViewModel.CargarDatos();
+           // UserDialogs.Instance.HideLoading();
+            //await Task.Delay(500);
         }
     }
 }

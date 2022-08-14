@@ -1,4 +1,5 @@
-﻿using CRUD_MVVM.Models;
+﻿using Acr.UserDialogs;
+using CRUD_MVVM.Models;
 using CRUD_MVVM.Services;
 using CRUD_MVVM.Views;
 using System;
@@ -42,12 +43,12 @@ namespace CRUD_MVVM.ViewModels
                 bool response = await personaServices.DeletePerson(persona.Key);
                 if (response)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Advertencia", "Alumno Eliminada Correctamente", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Exito", "Empleado Eliminado Exitosamente", "Ok");
                     CargarDatos();
                 }
                 else
                 {
-                    await Application.Current.MainPage.DisplayAlert("Advertencia", "Se produjo un error al eliminar la persona", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Error", "Se produjo un error al eliminar al empleado", "Ok");
                 }
             }
         }
@@ -62,7 +63,10 @@ namespace CRUD_MVVM.ViewModels
             ListaPersonas = await personaServices.ListarPersonas();
             if (ListaPersonas.Count == 0)
             {
-                await Application.Current.MainPage.DisplayAlert("Advertencia", "No hay personas registradas", "Ok");
+              // UserDialogs.Instance.ShowLoading("Cargando Cartelera", MaskType.Clear);
+                await Application.Current.MainPage.DisplayAlert("Advertencia", "No hay empleados en la lista", "Ok");
+               // UserDialogs.Instance.HideLoading();
+               // await Task.Delay(500);
             }
         }
 

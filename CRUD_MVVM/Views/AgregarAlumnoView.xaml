@@ -62,7 +62,7 @@
                                        Padding="0"
                                        Margin="0,1,10,1">
 
-                                        <Image Source="avatares.png" 
+                                        <Image Source="nombre.png" 
                                                Aspect="AspectFit" 
                                                Margin="0,0,0,0"/>
                                     </Frame>
@@ -87,7 +87,7 @@
                                        Padding="0"
                                        Margin="0,1,10,1">
 
-                                        <Image Source="avatares.png" 
+                                        <Image Source="apellidos" 
                                                Aspect="AspectFit" 
                                                Margin="0,0,0,0"/>
                                     </Frame>
@@ -113,7 +113,7 @@
                                        Padding="0"
                                        Margin="0,1,10,1">
 
-                                        <Image Source="avatares.png" 
+                                        <Image Source="edad.png" 
                                                Aspect="AspectFit" 
                                                Margin="0,0,0,0"/>
                                     </Frame>
@@ -139,7 +139,7 @@
                                        Padding="0"
                                        Margin="0,1,10,1">
 
-                                        <Image Source="avatares.png" 
+                                        <Image Source="direccion.png" 
                                                Aspect="AspectFit" 
                                                Margin="0,0,0,0"/>
                                     </Frame>
@@ -164,7 +164,7 @@
                                        Padding="0"
                                        Margin="0,1,10,1">
 
-                                        <Image Source="avatares.png" 
+                                        <Image Source="puesto.png" 
                                                Aspect="AspectFit" 
                                                Margin="0,0,0,0"/>
                                     </Frame>
@@ -184,11 +184,11 @@
 
                 <Frame CornerRadius="10" HasShadow="True">
                     <Grid>
-                        <Button Text="Salvar"
+                        <Button Text="Guardar"
                 CornerRadius="10"
                 Margin="0,0,0,0"
                 TextTransform="None"
-                BackgroundColor="DarkGreen"
+                BackgroundColor="SteelBlue"
                 TextColor="White"
                 FontSize="16"
                 FontAttributes="Bold"
@@ -199,7 +199,7 @@
                 CornerRadius="10"
                  Margin="0,0,0,0"
                 TextTransform="None"
-                BackgroundColor="DarkGreen"
+                BackgroundColor="SteelBlue"
                 TextColor="White"
                 FontSize="16"
                 Command="{Binding ListarCommand}" Grid.Row="0" Grid.Column="1"/>

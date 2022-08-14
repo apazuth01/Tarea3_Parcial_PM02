@@ -12,7 +12,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout Padding="0" BackgroundColor="DarkGreen" >
+    <StackLayout Padding="0" BackgroundColor="SteelBlue" >
 
         <CollectionView ItemsSource="{Binding ListaPersonas}"
                         VerticalOptions="CenterAndExpand">
@@ -20,7 +20,8 @@
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical"
                                  Span="1"
-                                 VerticalItemSpacing="2"/>
+                                 VerticalItemSpacing="2"
+                                 />
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
@@ -32,52 +33,78 @@
                             <SwipeItems>
                                 <SwipeItem Text="Editar"
                                            IconImageSource="edicion.png"
-                                           BackgroundColor="#21618C"
+                                           BackgroundColor="LightGreen"
                                            Command="{Binding Source={x:Reference CurrentPage}, Path=BindingContext.EditarPersonaCommand}"
                                            CommandParameter="{Binding .}"/>
 
                                 <SwipeItem Text="Eliminar"
                                            IconImageSource="papelera.png"
-                                           BackgroundColor="#CF9D9D"
+                                           BackgroundColor="LightBlue"
                                            Command="{Binding Source={x:Reference CurrentPage}, Path=BindingContext.EliminarPersonaCommand}"
                                            CommandParameter="{Binding .}"/>
 
                             </SwipeItems>
                         </SwipeView.RightItems>
 
-                        <Frame BackgroundColor="White"
-                               CornerRadius="10"
-                               HasShadow="False"
-                               Margin="5,10,5,0"
-                               >
-                            <StackLayout Padding="0,0,0,0"
-                                         Orientation="Horizontal">
+                        
+                            
+                        
+                        <Grid Padding="5,5,0,5"  Margin="0,0,1,0" BackgroundColor="Transparent"  >
+                        
+                                <StackLayout Padding="0,0,0,0"
+                                         Orientation="Horizontal"
+                                         Grid.Column="0" BackgroundColor="Transparent"
+                                        HeightRequest="80" >
+                                                         
+                                   <Image Source="{Binding Foto,  Converter={StaticResource Base64ToImage}}"                                  
+                               Aspect="AspectFill"
+                                   />
                                
-                                    <Image Source="{Binding Foto,  Converter={StaticResource Base64ToImage}}" 
-                                  Aspect="AspectFit"                                      
-                                   HeightRequest="80" />
+                            </StackLayout>
+                            
+                                <StackLayout Grid.Column="1" BackgroundColor="Transparent">
+                                                                 
                                 
-                              
-                                <Label FontSize="16"
-                                       Margin="5,0,0,0"
+                                <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+                                    <Label FontSize="16"
+                                       Margin="-70,0,0,0"
                                        HorizontalOptions="StartAndExpand" 
                                        VerticalOptions="Center"
-                                       FontAttributes="Bold">
-                                    <Label.Text>
-                                        <MultiBinding StringFormat="{}{0} {1} ">
-                                            <Binding Path="Nombre"/>
-                                            <Binding Path="Apellidos"/>
-                                           
-                                        </MultiBinding>
-                                    </Label.Text>
-                                </Label >
-
-                         
-                             
+                                       FontAttributes="Bold"
+                                       >
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}{0} {1} ">
+                                                <Binding Path="Nombre"/>
+                                                <Binding Path="Apellidos"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label >                    
+                               </StackLayout>
                                 
+                                    <StackLayout Orientation="Horizontal">
+                                <Label FontSize="16"
+                                       Margin="-70,0,0,0"
+                                       HorizontalOptions="StartAndExpand" 
+                                       VerticalOptions="Center"
+                                       FontAttributes="Bold"
+                                       Text="{Binding Puesto}">
+                                </Label >
                             </StackLayout>
-                        </Frame>
-
+                              
+                                    <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="16"
+                                       Margin="-70,0,0,0"
+                                       HorizontalOptions="StartAndExpand" 
+                                       VerticalOptions="Center"
+                                       FontAttributes="Bold"
+                                       Text="{Binding Edad}">
+                                    </Label >
+                                </StackLayout>
+                               
+                            </StackLayout>
+                           
+                        </Grid>
+                      
                     </SwipeView>
 
                 </DataTemplate>

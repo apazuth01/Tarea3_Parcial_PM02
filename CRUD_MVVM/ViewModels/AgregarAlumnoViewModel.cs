@@ -179,12 +179,12 @@ namespace CRUD_MVVM.ViewModels
                 bool confirm = await services.UpdatePerson(persona, key);
                 if (confirm)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Confirmacion", "Alumno actualizada correctamente.", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Exito", "Datos actualizados Exitosamente.", "Ok");
                     await Application.Current.MainPage.Navigation.PopModalAsync();
                 }
                 else
                 {
-                    await Application.Current.MainPage.DisplayAlert("Confirmacion", "Se produjo un error al actualizar la persona.", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Error", "Se produjo un error al actualizar los Datos.", "Ok");
                 }
             }
             else
@@ -193,12 +193,12 @@ namespace CRUD_MVVM.ViewModels
                 bool confirm = await services.InsertarPersona(persona);
                 if (confirm)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Confirmacion", "Alumno registrada correctamente.", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Exito", "Empleado registrado Exitosamente.", "Ok");
                     Limpiar();
                 }
                 else
                 {
-                    await Application.Current.MainPage.DisplayAlert("Confirmacion", "Se produjo un error al registrar la persona.", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Error", "Se produjo un error al registrar los datos.", "Ok");
                 }
             }
             
@@ -212,7 +212,7 @@ namespace CRUD_MVVM.ViewModels
             Direccion = "";
             Puesto = "";
             Foto = "";
-            imagenPersona.Source = "imgMuestra";
+            imagenPersona.Source = "avatares";
         }
 
         private string ValidarCampos()
@@ -251,7 +251,7 @@ namespace CRUD_MVVM.ViewModels
             }
             else if (string.IsNullOrEmpty(Foto))
             {
-                return "Debes ingresar la fotografia";
+                return "Debes tomar o agregar la fotografia";
             }
 
             return "OK";
